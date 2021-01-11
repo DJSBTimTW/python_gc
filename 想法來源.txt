@@ -1,0 +1,10 @@
+javascript:
+    (function()%7Bvar xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", "https://mypage.groovecoaster.jp/sp/json/music_list.php", false);
+    xmlHttp.send(null);var data = JSON.parse(xmlHttp.responseText);
+    var play_count_data = data.music_list.map(function(e)%7Breturn e.play_count;%7D);
+    var sum =  play_count_data.reduce(function(a,b)%7Breturn a + b;%7D);
+    alert("%E6%A5%BD%E6%9B%B2%E3%83%97%E3%83%AC%E3%82%A4%E7%B7%8F%E6%95%B0:
+         " + sum + "%5Cn" + Math.ceil(sum/3) + "
+        %E3%82%AF%E3%83%AC%E3%81%8F%E3%82%89%E3%81%84%E3%81%97%E3%81%A6%E3%81%84%E3%81%BE%E3%81%99");
+    %7D)();
